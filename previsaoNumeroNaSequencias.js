@@ -69,7 +69,7 @@ function imprimirResultadoFinal(diferencasPosicoes, posicoesDoValorProcurado, ta
                     + somatorioPosicoesGlobais
                     - somaValoresNegativos;
 
-    console.log("Resultado Encontrado da Predição => " + resultado);
+    console.log(`Predição onde posivelmente o n° ${numeroProcuradoParaPredicao} vai estar na TimeLine => ${resultado}`);
 }
 
 // Início do processamento
