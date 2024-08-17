@@ -14,9 +14,11 @@ async function lerFileiraDeDados() {
         return arrayDados;
     } catch (err) {
         console.error("O arquivo não foi encontrado:", err);
-        throw err; // Propagar o erro para o chamador
+        // Propagar o erro para o chamador
+        throw err;
     }
 }
+
 
 async function encontrarPosicoesEProcessar() {
     try {
@@ -37,9 +39,10 @@ async function encontrarPosicoesEProcessar() {
     }
 }
 
-function calcularDiferencas(posicoesDoValorProcurado) {
-    const diferencasPosicoes = [];
 
+function calcularDiferencas(posicoesDoValorProcurado) {
+    
+    const diferencasPosicoes = [];
     for (let i = 0; i < posicoesDoValorProcurado.length - 1; i++) {
         const atual = posicoesDoValorProcurado[i];
         const posterior = posicoesDoValorProcurado[i + 1];
@@ -50,7 +53,6 @@ function calcularDiferencas(posicoesDoValorProcurado) {
             console.log("==> " + (atual - posterior));
         }
     }
-
     return diferencasPosicoes;
 }
 
@@ -60,16 +62,17 @@ function imprimirResultadoFinal(diferencasPosicoes, posicoesDoValorProcurado, ta
     somatorioPosicoesGlobais += diferencasPosicoes[diferencasPosicoes.length - 1];
 
     console.log("-------IMPRIMINDO RESULTADO-------");
-    console.log("Valor Procurado => " + numeroProcuradoParaPredicao);
-    console.log("Última Posição do Valor Procurado na TimeLine => " + posicoesDoValorProcurado[posicoesDoValorProcurado.length - 1]);
-    console.log("Tamanho do Range da TimeLine => " + tamanhoDoRange);
-    console.log("Valores Negativos Encontrados => " + somaValoresNegativos);
+    console.log(`Valor Procurado =>  numeroProcuradoParaPredicao`);
+    console.log(`Última Posição do Valor Procurado na TimeLine =>  ${posicoesDoValorProcurado[posicoesDoValorProcurado.length - 1]}`);
+    console.log(`Tamanho do Range da TimeLine =>  ${tamanhoDoRange}`);
+    console.log(`Valores Negativos Encontrados => ${somaValoresNegativos}`);
 
     const resultado = posicoesDoValorProcurado[posicoesDoValorProcurado.length - 1]
-                    + somatorioPosicoesGlobais
-                    - somaValoresNegativos;
+        + somatorioPosicoesGlobais
+        - somaValoresNegativos;
 
     console.log(`Predição onde posivelmente o n° ${numeroProcuradoParaPredicao} vai estar na TimeLine => ${resultado}`);
+
 }
 
 // Início do processamento
